@@ -54,6 +54,8 @@ extern int wcd937x_info_create_codec_entry(struct snd_info_entry *codec_root,
 
 extern int wcd937x_get_codec_variant(struct snd_soc_component *component);
 
+int wcd937x_codec_get_dev_num(struct snd_soc_component *component);
+
 static inline int wcd937x_slave_get_master_ch_val(int ch)
 {
 	int i;
@@ -86,6 +88,10 @@ extern int wcd937x_info_create_codec_entry(struct snd_info_entry *codec_root,
 	return 0;
 }
 static inline int wcd937x_get_codec_variant(struct snd_soc_component *component)
+{
+	return 0;
+}
+static int wcd937x_codec_get_dev_num(struct snd_soc_component *component)
 {
 	return 0;
 }
