@@ -228,6 +228,7 @@ ifdef CONFIG_SND_SOC_WCD_MBHC_LEGACY
 endif
 
 ifdef CONFIG_SND_SOC_MSM_HDMI_CODEC_RX
+	ccflags-y += -I$(KERNEL_SRC)/techpack/mm/msm_ext_display/include
 	HDMICODEC_OBJS += msm_hdmi_codec_rx.o
 endif
 
