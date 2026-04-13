@@ -1,1 +1,20 @@
-obj-y := dsp/ ipc/ soc/ asoc/ asoc/codecs/ asoc/codecs/lpass-cdc/ asoc/codecs/bolero/ asoc/codecs/wcd939x/ asoc/codecs/wsa884x/ asoc/codecs/wcd938x/ asoc/codecs/wsa883x/ asoc/codecs/wcd937x/ asoc/codecs/wcd9378/ asoc/codecs/qmp1000/
+ifeq ($(AUDIO_ROOT),)
+AUDIO_ROOT := $(srctree)/techpack/audio
+endif
+
+ifeq ($(CONFIG_ARCH_PARROT), y)
+include $(AUDIO_ROOT)/config/waipioauto.conf
+LINUXINCLUDE += -include $(AUDIO_ROOT)/config/waipioautoconf.h
+endif
+
+LINUXINCLUDE += \
+		-I$(AUDIO_ROOT)/include/uapi \
+		-I$(AUDIO_ROOT)/include/uapi/audio \
+		-I$(AUDIO_ROOT)/include/asoc \
+		-I$(AUDIO_ROOT)/include
+USERINCLUDE += -I$(AUDIO_ROOT)/include/uapi/audio
+
+obj-y += asoc/
+obj-y += dsp/
+obj-y += ipc/
+obj-y += soc/
