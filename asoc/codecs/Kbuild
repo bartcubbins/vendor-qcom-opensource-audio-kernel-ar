@@ -1,3 +1,7 @@
+ifeq ($(KERNEL_SRC),)
+KERNEL_SRC := $(srctree)
+endif
+
 # We can build either as part of a standalone Kernel build or as
 # an external module.  Determine which mechanism is being used
 ifeq ($(MODNAME),)
