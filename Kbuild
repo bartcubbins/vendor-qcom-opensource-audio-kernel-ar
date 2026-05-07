@@ -3,8 +3,8 @@ AUDIO_ROOT := $(srctree)/techpack/audio
 endif
 
 ifeq ($(CONFIG_ARCH_PARROT), y)
-include $(AUDIO_ROOT)/config/waipioauto.conf
-LINUXINCLUDE += -include $(AUDIO_ROOT)/config/waipioautoconf.h
+include $(AUDIO_ROOT)/config/parrotauto.conf
+LINUXINCLUDE += -include $(AUDIO_ROOT)/config/parrotautoconf.h
 endif
 
 LINUXINCLUDE += \
