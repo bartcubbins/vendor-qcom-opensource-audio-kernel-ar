@@ -1280,7 +1280,7 @@ static int32_t wsa881x_temp_reg_read(struct snd_soc_component *component,
 		}
 		if (retry == 0) {
 			dev_err(component->dev,
-				"%s get devnum %d for dev addr %lx failed\n",
+				"%s get devnum %d for dev addr %llx failed\n",
 				__func__, devnum, dev->addr);
 			return -EINVAL;
 		}
@@ -1581,7 +1581,7 @@ static int wsa881x_swr_probe(struct swr_device *pdev)
 	ret = swr_get_logical_dev_num(pdev, pdev->addr, &devnum);
 	if (ret) {
 		dev_dbg(&pdev->dev,
-			"%s get devnum %d for dev addr %lx failed\n",
+			"%s get devnum %d for dev addr %llx failed\n",
 			__func__, devnum, pdev->addr);
 		ret = -EPROBE_DEFER;
 		goto dev_err;
@@ -1621,7 +1621,7 @@ static int wsa881x_swr_probe(struct swr_device *pdev)
 				"wsa_dev_index", &dev_index);
 	if (ret) {
 		dev_err(&pdev->dev, "%s: cannot read wsa_dev_index, ret = %d\n",
-			__func__);
+			__func__, dev_index);
 		goto dev_err;
 	}
 
