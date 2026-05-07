@@ -1132,7 +1132,7 @@ static int __init soundwire_init(void)
 
 	return retval;
 }
-module_init(soundwire_init);
+subsys_initcall(soundwire_init);
 module_exit(soundwire_exit);
 
 
