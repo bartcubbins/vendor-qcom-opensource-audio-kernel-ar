@@ -7,6 +7,11 @@ include $(AUDIO_ROOT)/config/parrotauto.conf
 LINUXINCLUDE += -include $(AUDIO_ROOT)/config/parrotautoconf.h
 endif
 
+ifeq ($(CONFIG_ARCH_WAIPIO), y)
+include $(AUDIO_ROOT)/config/waipioauto.conf
+LINUXINCLUDE += -include $(AUDIO_ROOT)/config/waipioautoconf.h
+endif
+
 LINUXINCLUDE += \
 		-I$(AUDIO_ROOT)/include/uapi \
 		-I$(AUDIO_ROOT)/include/uapi/audio \
